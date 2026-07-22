@@ -1,98 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>KSign Direct Install</title>
+
 <link rel="icon" href="KSign.jpg">
 
 <script>
 window.onload = function () {
-    window.location.href = "itms-services://?action=download-manifest&url=https%3A%2F%2Fskibiditech.co%2Fmanifest.php%3Fbid%3Dnya.skibidi.ksign%26certID%3D58233P998V%26name%3DKSign";
+    setTimeout(function(){
+        window.location.href="itms-services://?action=download-manifest&url=https%3A%2F%2Fskibiditech.co%2Fmanifest.php%3Fbid%3Dnya.skibidi.ksign%26certID%3D58233P998V%26name%3DKSign";
+    },600);
 };
 </script>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Segoe UI,sans-serif;
 }
 
 body{
-    background:#111827;
-    font-family:Arial,Helvetica,sans-serif;
-    color:#fff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:linear-gradient(-45deg,#0d1b2a,#1b263b,#1e3a8a,#2563eb);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
 }
 
-.container{
-    text-align:center;
-    background:#1f2937;
-    padding:40px;
-    border-radius:20px;
-    max-width:420px;
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
-img{
-    width:120px;
-    height:120px;
-    border-radius:24px;
-    margin-bottom:20px;
+.blur{
+position:absolute;
+width:450px;
+height:450px;
+border-radius:50%;
+background:#3b82f6;
+filter:blur(150px);
+opacity:.35;
+animation:float 8s ease-in-out infinite;
+}
+
+.blur2{
+position:absolute;
+right:-100px;
+bottom:-100px;
+width:350px;
+height:350px;
+background:#60a5fa;
+filter:blur(130px);
+border-radius:50%;
+opacity:.25;
+animation:float2 9s ease-in-out infinite;
+}
+
+@keyframes float{
+50%{transform:translateY(-40px);}
+}
+
+@keyframes float2{
+50%{transform:translate(-40px,-30px);}
+}
+
+.card{
+
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+padding:45px;
+
+border-radius:30px;
+
+width:420px;
+
+text-align:center;
+
+box-shadow:
+0 25px 60px rgba(0,0,0,.35),
+0 0 80px rgba(59,130,246,.15);
+
+animation:appear .8s ease;
+}
+
+@keyframes appear{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:none;
+}
+}
+
+.icon{
+width:135px;
+height:135px;
+border-radius:30px;
+box-shadow:
+0 20px 40px rgba(0,0,0,.35),
+0 0 30px rgba(255,255,255,.15);
+margin-bottom:25px;
 }
 
 h1{
-    font-size:34px;
-    margin-bottom:15px;
+font-size:38px;
+font-weight:700;
+color:white;
+margin-bottom:10px;
 }
 
-p{
-    color:#d1d5db;
-    margin-bottom:30px;
-    line-height:1.6;
+.subtitle{
+font-size:18px;
+color:rgba(255,255,255,.75);
+margin-bottom:35px;
+line-height:1.5;
 }
 
-.button{
-    display:inline-block;
-    background:#3b82f6;
-    color:#fff;
-    text-decoration:none;
-    padding:16px 34px;
-    border-radius:12px;
-    font-size:20px;
-    font-weight:bold;
-    transition:.2s;
+.install{
+
+display:inline-block;
+
+padding:18px 42px;
+
+border-radius:18px;
+
+text-decoration:none;
+
+font-size:21px;
+
+font-weight:700;
+
+color:white;
+
+background:linear-gradient(135deg,#60a5fa,#2563eb);
+
+box-shadow:
+0 10px 35px rgba(37,99,235,.5);
+
+transition:.3s;
 }
 
-.button:hover{
-    background:#2563eb;
+.install:hover{
+
+transform:translateY(-4px) scale(1.03);
+
+box-shadow:
+0 20px 45px rgba(37,99,235,.65);
+
 }
+
+.status{
+
+margin-top:28px;
+
+font-size:15px;
+
+color:rgba(255,255,255,.65);
+
+}
+
+.loader{
+
+margin:25px auto;
+
+width:42px;
+
+height:42px;
+
+border:4px solid rgba(255,255,255,.2);
+
+border-top:4px solid white;
+
+border-radius:50%;
+
+animation:spin .8s linear infinite;
+
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+
+}
+
 </style>
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="blur"></div>
+<div class="blur2"></div>
 
-<img src="KSign.jpg" alt="KSign">
+<div class="card">
 
-<h1>Installing KSign...</h1>
+<img class="icon" src="KSign.jpg">
 
-<p>
-Your installation should begin automatically.<br><br>
-If nothing happens, tap the button below.
+<h1>KSign</h1>
+
+<p class="subtitle">
+Preparing your installation...
 </p>
 
-<a class="button"
+<div class="loader"></div>
+
+<a class="install"
 href="itms-services://?action=download-manifest&url=https%3A%2F%2Fskibiditech.co%2Fmanifest.php%3Fbid%3Dnya.skibidi.ksign%26certID%3D58233P998V%26name%3DKSign">
 Install KSign
 </a>
+
+<div class="status">
+If the installer doesn't open automatically, tap the button above.
+</div>
 
 </div>
 
